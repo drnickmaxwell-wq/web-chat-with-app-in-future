@@ -1,45 +1,50 @@
-'use client'
+'use client';
 
-
-import React, { useState } from 'react'
-import { Mail, Shield, ArrowRight, CheckCircle } from 'lucide-react'
+import React, { useState } from 'react';
+import { Mail, Shield, ArrowRight, CheckCircle } from 'lucide-react';
 
 interface AuthGatewayProps {
-  onAuthSuccess: () => void
+  onAuthSuccess?: () => void;       // now optional
+  children?: React.ReactNode;       // allow wrapper usage
 }
 
-export function AuthGateway({ onAuthSuccess }: AuthGatewayProps) {
-  const [email, setEmail] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [linkSent, setLinkSent] = useState(false)
+function AuthGateway({ onAuthSuccess, children }: AuthGatewayProps) {
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [linkSent, setLinkSent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
 
     // Mock magic link sending - replace with real implementation
     setTimeout(() => {
-      setIsLoading(false)
-      setLinkSent(true)
-      
+      setIsLoading(false);
+      setLinkSent(true);
+
       // Mock successful authentication after 3 seconds
       setTimeout(() => {
-        localStorage.setItem('auth_token', 'mock_token_' + Date.now())
-        onAuthSuccess()
-      }, 3000)
-    }, 2000)
-  }
+        localStorage.setItem('auth_token', 'mock_token_' + Date.now());
+        onAuthSuccess?.();           // safe optional call
+      }, 3000);
+    }, 2000);
+  };
 
   const handleMockSignIn = () => {
     // For development/demo purposes - remove in production
-    localStorage.setItem('auth_token', 'mock_token_' + Date.now())
-    onAuthSuccess()
-  }
+    localStorage.setItem('auth_token', 'mock_token_' + Date.now());
+    onAuthSuccess?.();               // safe optional call
+  };
+
+  // If the component is used as a wrapper *and* the parent already considers the user "authed",
+  // you can add a simple token check here later and early-return children.
+
+  // If children are provided but we still want the gate UI first, keep rendering the UI.
+  // Once onAuthSuccess fires, the parent page can flip state and show the gated content.
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 to-secondary/5 flex items-center justify-center">
       <div className="max-w-md w-full mx-4">
-        
         {/* Header */}
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -50,10 +55,9 @@ export function AuthGateway({ onAuthSuccess }: AuthGatewayProps) {
             Enter your email to access the video consultation portal
           </p>
         </div>
-        
+
         {/* Auth Form */}
         <div className="bg-white rounded-2xl shadow-xl border border-gray-200/50 p-8">
-          
           {!linkSent ? (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -70,7 +74,7 @@ export function AuthGateway({ onAuthSuccess }: AuthGatewayProps) {
                   required
                 />
               </div>
-              
+
               <button
                 type="submit"
                 disabled={isLoading || !email}
@@ -95,7 +99,7 @@ export function AuthGateway({ onAuthSuccess }: AuthGatewayProps) {
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
               <h2 className="text-xl font-semibold text-foreground mb-2">Check Your Email</h2>
               <p className="text-foreground-secondary mb-6">
-                We've sent a secure magic link to <strong>{email}</strong>. 
+                We've sent a secure magic link to <strong>{email}</strong>.
                 Click the link to access your consultation portal.
               </p>
               <p className="text-sm text-foreground-secondary">
@@ -103,7 +107,7 @@ export function AuthGateway({ onAuthSuccess }: AuthGatewayProps) {
               </p>
             </div>
           )}
-          
+
           {/* Security Features */}
           <div className="mt-8 pt-6 border-t border-gray-200">
             <h3 className="text-sm font-medium text-foreground mb-3">Security Features</h3>
@@ -127,7 +131,7 @@ export function AuthGateway({ onAuthSuccess }: AuthGatewayProps) {
             </div>
           </div>
         </div>
-        
+
         {/* Development Helper */}
         {process.env.NODE_ENV === 'development' && (
           <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
@@ -142,7 +146,10 @@ export function AuthGateway({ onAuthSuccess }: AuthGatewayProps) {
             </button>
           </div>
         )}
-        
+
+        {/* Optional children area (useful if you want to render a teaser or gated preview) */}
+        {children ? <div className="mt-8">{children}</div> : null}
+
         {/* Footer */}
         <div className="text-center mt-8">
           <p className="text-xs text-foreground-secondary">
@@ -154,12 +161,7 @@ export function AuthGateway({ onAuthSuccess }: AuthGatewayProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
- 
-
-
-
-
 
 export default AuthGateway;
