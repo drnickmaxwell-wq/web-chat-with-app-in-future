@@ -1,0 +1,19 @@
+{
+  "name": "st-marys-house-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "packages/*/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter site... dev",
+    "build": "pnpm --filter site... build",
+    "lint": "pnpm -r run lint",
+    "typecheck": "pnpm -r run typecheck",
+    "test": "pnpm -r run test"
+  },
+  "devDependencies": {
+    "pnpm": "9.0.0"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Website and AI chatbot framework for St Mary’s House Dental Care",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit",
+    "sitemap": "next-sitemap"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tailwindcss": "3.4.7",
+    "autoprefixer": "10.4.19",
+    "postcss": "8.4.40",
+    "@tailwindcss/typography": "0.5.13",
+    "class-variance-authority": "0.7.0",
+    "clsx": "2.1.1",
+    "tailwind-merge": "2.4.0",
+    "lucide-react": "0.408.0",
+    "next-seo": "6.5.0",
+    "next-sitemap": "4.2.3",
+    "@next/mdx": "14.2.5",
+    "@mdx-js/loader": "3.0.1",
+    "@mdx-js/react": "3.0.1",
+    "gray-matter": "4.0.3",
+    "framer-motion": "11.3.8",
+    "date-fns": "3.6.0",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.5",
+    "@typescript-eslint/eslint-plugin": "7.17.0",
+    "@typescript-eslint/parser": "7.17.0",
+    "prettier": "3.2.5",
+    "tailwindcss-animate": "1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.0.0"
+}
+
