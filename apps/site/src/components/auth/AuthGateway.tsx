@@ -155,4 +155,10 @@ export function AuthGateway({ onAuthSuccess }: AuthGatewayProps) {
     </div>
   )
 }
+ 
 
+
+
+
+
+export default AuthGateway;
