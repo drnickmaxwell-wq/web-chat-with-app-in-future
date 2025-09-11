@@ -3,7 +3,10 @@ import { Montserrat, Lora } from 'next/font/google'
 import './globals.css'
 import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
-import { WaveBackgroundLayout } from '@/components/layout/WaveBackgroundLayout'
+import { WaveBackgroundLayout } from '@/components/layout/WaveBackgroundLayout
+
+
+ '
 import { SkipLink } from '@/components/ui/SkipLink'
 import { seoConfig } from '@/lib/seo/config'
 import CookieConsent from '@/components/CookieConsent'
@@ -29,9 +32,11 @@ export const metadata: Metadata = {
   publisher: seoConfig.siteName,
   formatDetection: {
     email: false,
+ 
     address: false,
     telephone: false,
   },
+ 
   metadataBase: new URL(seoConfig.siteUrl),
   alternates: {
     canonical: '/',
@@ -62,12 +67,16 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
+    g
+      oogleBot: {
       index: true,
       follow: true,
       'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+        
+   
+  
+        'max-image-preview': 'large',
+     'max-snippet': -1,
     },
   },
   verification: {
@@ -100,7 +109,8 @@ export default function RootLayout({
         />
         
         {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <
+          link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
@@ -113,7 +123,8 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
-        <SkipLink />
+        <SkipL
+          ink />
         
         <WaveBackgroundLayout>
           <div className="flex min-h-screen flex-col">
@@ -133,7 +144,8 @@ export default function RootLayout({
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
+          d
+          angerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Dentist",
