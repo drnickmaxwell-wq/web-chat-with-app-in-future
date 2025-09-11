@@ -3,9 +3,7 @@ import { Montserrat, Lora } from 'next/font/google'
 import './globals.css'
 import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
-import { WaveBackgroundLayout } from '@/components/layout/WaveBackgroundLayout
-
-
+import { WaveBackgroundLayout } from '@/components/layout/WaveBackgroundLayout'
 import { SkipLink } from '@/components/ui/SkipLink'
 import { seoConfig } from '@/lib/seo/config'
 import CookieConsent from '@/components/CookieConsent'
@@ -31,7 +29,6 @@ export const metadata: Metadata = {
   publisher: seoConfig.siteName,
   formatDetection: {
     email: false,
- 
     address: false,
     telephone: false,
   },
@@ -66,16 +63,12 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    g
-      oogleBot: {
+    googleBot: {
       index: true,
       follow: true,
       'max-video-preview': -1,
-        
-   
-  
-        'max-image-preview': 'large',
-     'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   verification: {
@@ -106,110 +99,116 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        
+
         {/* Favicon */}
-        <
-          link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        
+
         {/* Theme color */}
         <meta name="theme-color" content="#C2185B" />
         <meta name="msapplication-TileColor" content="#C2185B" />
-        
+
         {/* Viewport */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
-        <SkipL
-          ink />
-        
+        <SkipLink />
+
         <WaveBackgroundLayout>
           <div className="flex min-h-screen flex-col">
             <Navigation />
-            
+
             <main id="main-content" className="flex-1">
               {children}
             </main>
-            
+
             <Footer />
           </div>
         </WaveBackgroundLayout>
 
         {/* Cookie banner overlays the page when open */}
         <CookieConsent />
-        
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
-          d
-          angerouslySetInnerHTML={{
+          dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Dentist",
-              "name": "St Mary's House Dental Care",
-              "description": "Luxury coastal dentistry practice in Shoreham-by-Sea offering advanced dental treatments with exceptional patient care.",
-              "url": "https://stmaryshousedental.co.uk",
-              "logo": "https://stmaryshousedental.co.uk/images/logo.png",
-              "image": "https://stmaryshousedental.co.uk/images/practice-exterior.jpg",
-              "telephone": "+441273453109",
-              "email": "info@stmaryshousedental.co.uk",
-              "address": {
+              name: "St Mary's House Dental Care",
+              description:
+                "Luxury coastal dentistry practice in Shoreham-by-Sea offering advanced dental treatments with exceptional patient care.",
+              url: "https://stmaryshousedental.co.uk",
+              logo: "https://stmaryshousedental.co.uk/images/logo.png",
+              image:
+                "https://stmaryshousedental.co.uk/images/practice-exterior.jpg",
+              telephone: "+441273453109",
+              email: "info@stmaryshousedental.co.uk",
+              address: {
                 "@type": "PostalAddress",
-                "streetAddress": "123 High Street",
-                "addressLocality": "Shoreham-by-Sea",
-                "addressRegion": "West Sussex",
-                "postalCode": "BN43 5DA",
-                "addressCountry": "GB"
+                streetAddress: "123 High Street",
+                addressLocality: "Shoreham-by-Sea",
+                addressRegion: "West Sussex",
+                postalCode: "BN43 5DA",
+                addressCountry: "GB",
               },
-              "geo": {
+              geo: {
                 "@type": "GeoCoordinates",
-                "latitude": "50.8322",
-                "longitude": "-0.2736"
+                latitude: "50.8322",
+                longitude: "-0.2736",
               },
-              "openingHours": [
+              openingHours: [
                 "Mo-Fr 08:00-18:00",
-                "Sa 09:00-17:00"
+                "Sa 09:00-17:00",
               ],
-              "priceRange": "£££",
-              "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Insurance"],
-              "currenciesAccepted": "GBP",
-              "areaServed": {
+              priceRange: "£££",
+              paymentAccepted: [
+                "Cash",
+                "Credit Card",
+                "Debit Card",
+                "Insurance",
+              ],
+              currenciesAccepted: "GBP",
+              areaServed: {
                 "@type": "GeoCircle",
-                "geoMidpoint": {
+                geoMidpoint: {
                   "@type": "GeoCoordinates",
-                  "latitude": "50.8322",
-                  "longitude": "-0.2736"
+                  latitude: "50.8322",
+                  longitude: "-0.2736",
                 },
-                "geoRadius": "25000"
+                geoRadius: "25000",
               },
-              "medicalSpecialty": [
+              medicalSpecialty: [
                 "Cosmetic Dentistry",
                 "Dental Implants",
                 "Teeth Whitening",
                 "Emergency Dentistry",
-                "Preventive Dentistry"
+                "Preventive Dentistry",
               ],
-              "hasCredential": {
+              hasCredential: {
                 "@type": "EducationalOccupationalCredential",
-                "credentialCategory": "Professional License",
-                "recognizedBy": {
+                credentialCategory: "Professional License",
+                recognizedBy: {
                   "@type": "Organization",
-                  "name": "General Dental Council"
-                }
+                  name: "General Dental Council",
+                },
               },
-              "sameAs": [
+              sameAs: [
                 "https://www.facebook.com/StMarysHouseDental",
                 "https://www.instagram.com/stmaryshousedental",
                 "https://www.linkedin.com/company/st-marys-house-dental-care",
-                "https://twitter.com/StMarysHouseDental"
-              ]
-            })
+                "https://twitter.com/StMarysHouseDental",
+              ],
+            }),
           }}
         />
       </body>
     </html>
   )
 }
-
