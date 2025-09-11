@@ -6,7 +6,7 @@ import { Footer } from '@/components/layout/Footer'
 import { WaveBackgroundLayout } from '@/components/layout/WaveBackgroundLayout
 
 
- '
+'
 import { SkipLink } from '@/components/ui/SkipLink'
 import { seoConfig } from '@/lib/seo/config'
 import CookieConsent from '@/components/CookieConsent'
