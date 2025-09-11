@@ -175,3 +175,5 @@ export function GDPRConsentDrawer({ onConsent }: GDPRConsentDrawerProps) {
   )
 }
 
+
+export default GDPRConsentDrawer;
