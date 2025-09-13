@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+
 import { Montserrat, Lora } from 'next/font/google'
 import './globals.css'
 import { Navigation } from '@/components/layout/Navigation'
