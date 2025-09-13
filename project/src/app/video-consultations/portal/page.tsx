@@ -1,10 +1,11 @@
 'use client'
 
+
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Shield, Video, Clock, User, AlertCircle } from 'lucide-react'
 import { AuthGateway } from '@/components/auth/AuthGateway'
-import { GDPRConsentDrawer } from '@/components/gdpr/GDPRConsentDrawer'
+impor{ GDPRConsentDrawert  } from '@/components/gdpr/GDPRConsentDrawer'
 import { VideoConsultationInterface } from '@/components/video/VideoConsultationInterface'
 
 export default function VideoConsultationPortalPage() {
